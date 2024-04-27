@@ -1,3 +1,3 @@
-package auth
+package authentication
 
 func HandlerIndex() {}
