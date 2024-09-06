@@ -8,5 +8,5 @@ import (
 func main() {
 	app := http.New()
 	application.HttpRoutes(app)
-	app.Server()
+	app.Listen(":3000")
 }
