@@ -1,4 +1,4 @@
-package http
+package application
 
 import (
 	"Felyp-Henrique/syncd/src/application/ports/handlers"
@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Routes(app *fiber.App) {
+func HttpRoutes(app *fiber.App) {
 	var (
 		groupApiV1      fiber.Router = nil
 		groupApiV1Users fiber.Router = nil
@@ -20,4 +20,8 @@ func Routes(app *fiber.App) {
 	//
 	groupApiV1Users = groupApiV1.Group("/users")
 	handlers.UsersHandlers(groupApiV1Users)
+}
+
+func RpcRoutes() {
+
 }
