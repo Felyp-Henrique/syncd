@@ -1,1 +1,5 @@
 package messaging
+
+func init() {
+
+}

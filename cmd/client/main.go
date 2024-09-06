@@ -1,8 +1,8 @@
 package main
 
-// This command will be the "syncctl" bin.
-//
-// author: Felyp-Henrique
-func main() {
+import "Felyp-Henrique/syncd/src/infrastructure/http"
 
+func main() {
+	app := http.New()
+	app.Server()
 }
