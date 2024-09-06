@@ -3,7 +3,7 @@ package services
 import (
 	"Felyp-Henrique/syncd/src/application/domains/entities"
 	"Felyp-Henrique/syncd/src/application/domains/services"
-	"Felyp-Henrique/syncd/src/application/repositories"
+	"Felyp-Henrique/syncd/src/application/features/repositories"
 )
 
 type UsersDataBaseService struct {
@@ -16,6 +16,6 @@ func NewUserDataBaseService(repository *repositories.UsersDataBaseRepository) se
 	}
 }
 
-func (u *UsersDataBaseService) All() ([]entities.User, error) {
+func (u *UsersDataBaseService) All() ([]*entities.User, error) {
 	return u.repository.All()
 }

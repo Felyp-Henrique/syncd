@@ -1,10 +1,10 @@
 package database
 
 import (
-	"database/sql"
 	_ "embed"
 	"fmt"
 
+	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 	"gopkg.in/yaml.v3"
@@ -14,7 +14,7 @@ var (
 	//go:embed configuration.yml
 	_embedConfiguration []byte
 
-	_databaseConnection *sql.DB = nil
+	_databaseConnection *sqlx.DB = nil
 )
 
 func init() {
@@ -69,12 +69,12 @@ func GetConfigurationFromBytes(bytes []byte) (*DataSource, error) {
 	}
 }
 
-func GetConnection() *sql.DB {
+func GetConnection() *sqlx.DB {
 	return _databaseConnection
 }
 
-func GetConnectionSqlite(database string) (*sql.DB, error) {
-	return sql.Open(DRIVER_SQLITE, database)
+func GetConnectionSqlite(database string) (*sqlx.DB, error) {
+	return sqlx.Open(DRIVER_SQLITE, database)
 }
 
 func GetConnectionPostgres(
@@ -82,7 +82,7 @@ func GetConnectionPostgres(
 	port int,
 	username string,
 	password string,
-	database string) (*sql.DB, error) {
+	database string) (*sqlx.DB, error) {
 	var datasource = fmt.Sprintf(
 		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		host,
@@ -90,5 +90,5 @@ func GetConnectionPostgres(
 		username,
 		password,
 		database)
-	return sql.Open(DRIVER_POSTGRESQL, datasource)
+	return sqlx.Open(DRIVER_POSTGRESQL, datasource)
 }
