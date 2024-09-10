@@ -1,8 +1,6 @@
 package handlers
 
 import (
-	"Felyp-Henrique/syncd/src/application"
-
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -27,16 +25,4 @@ func UsersUpdateHandler(c *fiber.Ctx) error {
 
 func UsersDeleteHandler(c *fiber.Ctx) error {
 	return c.SendString(c.Params("id"))
-}
-
-func init() {
-	var (
-		server          *fiber.App   = application.InjectHttpServer().GetServer()
-		groupApiV1      fiber.Router = server.Group("/v1")
-		groupApiV1Users fiber.Router = groupApiV1.Group("/users")
-	)
-	groupApiV1Users.Get("", UsersIndexHandler).Name(UsersIndexHandlerRoute)
-	groupApiV1Users.Get("/:id", UsersDetailHandler).Name(UsersDetailHandlerRoute)
-	groupApiV1Users.Put("/:id", UsersUpdateHandler).Name(UsersUpdateHandlerRoute)
-	groupApiV1Users.Put("/:id", UsersDeleteHandler).Name(UsersDeleteHandlerRoute)
 }
