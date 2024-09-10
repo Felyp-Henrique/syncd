@@ -2,11 +2,13 @@ package main
 
 import (
 	"Felyp-Henrique/syncd/src/application"
-	"Felyp-Henrique/syncd/src/infrastructure/http"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-	app := http.New()
-	application.HttpRoutes(app)
+	var (
+		app *fiber.App = application.InjectHttpServer().GetServer()
+	)
 	app.Listen(":3000")
 }

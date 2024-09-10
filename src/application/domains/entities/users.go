@@ -1,14 +1,14 @@
 package entities
 
 const (
-	USER_TYPE_OPERATOR int = iota
-	USER_TYPE_ADMIN
+	UserTypeOperator int = iota
+	UserTypeAdmin
 )
 
 const (
-	USER_STATUS_DELETED int = iota
-	USER_STATUS_INACTIVED
-	USER_STATUS_ACTIVED
+	UserStatusDeleted int = iota
+	UserStatusInactived
+	UserStatusActived
 )
 
 type User struct {

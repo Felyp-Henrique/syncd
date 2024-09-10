@@ -37,7 +37,7 @@ func (u *UsersDataBaseRepository) All() ([]*entities.User, error) {
 	query.WriteString("where\n")
 	query.WriteString("	 u.status = :status\n")
 	rows, err = u.database.NamedQuery(query.String(), map[string]any{
-		"status": entities.USER_STATUS_ACTIVED,
+		"status": entities.UserStatusActived,
 	})
 	if err != nil {
 		return []*entities.User{}, err
