@@ -3,12 +3,12 @@ all: clean test build
 clean:
 	rm -f syncd syncctl
 
-test:
+test: generate.mocks
 	for file_test in `find tests/ -name '*_test.go'`; do \
 		go test $$file_test; \
 	done;
 
-test.verbose:
+test.verbose: generate.mocks
 	for file_test in `find tests/ -name '*_test.go'`; do \
 		go test -v $$file_test; \
 	done;
@@ -21,3 +21,10 @@ build.daemon:
 
 build.client:
 	go build -o syncctl ./cmd/syncctl/main.go
+
+generate.mocks:
+	go install github.com/golang/mock/mockgen
+
+	for file_test in `find tests/ -name '*_test.go'`; do \
+		go generate -v $$file_test; \
+	done;
