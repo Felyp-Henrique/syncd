@@ -10,7 +10,7 @@ type UsersDataBaseService struct {
 	repository *repositories.UsersDataBaseRepository
 }
 
-func NewUserDataBaseService(repository *repositories.UsersDataBaseRepository) services.IUsersService {
+func NewUserDataBaseService(repository *repositories.UsersDataBaseRepository) services.UsersService {
 	return &UsersDataBaseService{
 		repository: repository,
 	}
