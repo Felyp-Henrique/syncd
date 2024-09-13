@@ -1,8 +1,8 @@
 package services
 
 import (
-	"Felyp-Henrique/syncd/src/application/domains/entities"
-	"Felyp-Henrique/syncd/src/application/domains/services"
+	"Felyp-Henrique/syncd/src/application/domain/entities"
+	"Felyp-Henrique/syncd/src/application/domain/services"
 	"Felyp-Henrique/syncd/src/application/features/repositories"
 )
 

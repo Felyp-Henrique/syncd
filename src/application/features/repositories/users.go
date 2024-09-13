@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"Felyp-Henrique/syncd/src/application/domains/entities"
+	"Felyp-Henrique/syncd/src/application/domain/entities"
 	"strings"
 
 	"github.com/jmoiron/sqlx"
