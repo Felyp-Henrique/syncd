@@ -4,19 +4,20 @@ clean:
 	rm -f syncd syncctl
 
 test:
-	for test_files in `find tests/ -name '*_test.go'`; do \
-		go test $$test_files; \
+	for file_test in `find tests/ -name '*_test.go'`; do \
+		go test $$file_test; \
 	done;
 
 test.verbose:
-	for test_files in `find tests/ -name '*_test.go'`; do \
-		go test -v $$test_files; \
+	for file_test in `find tests/ -name '*_test.go'`; do \
+		go test -v $$file_test; \
 	done;
 
-build: build.daemon build.client
+build: \
+	build.daemon build.client
 
 build.daemon:
-	go build -o syncd ./cmd/daemon/main.go
+	go build -o syncd ./cmd/syncd/main.go
 
 build.client:
-	go build -o syncctl ./cmd/client/main.go
+	go build -o syncctl ./cmd/syncctl/main.go

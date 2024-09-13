@@ -21,5 +21,5 @@
 go.work
 
 # Binaries
-syncd
-syncctl
+/syncd
+/syncctl
