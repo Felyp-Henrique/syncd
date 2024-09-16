@@ -2,17 +2,16 @@ package processors
 
 import (
 	"Felyp-Henrique/syncd/src/application/domain/entities"
-
-	"github.com/jmoiron/sqlx"
+	"Felyp-Henrique/syncd/src/application/features/repositories"
 )
 
 type DataBaseRegisterProcessor struct {
-	dataBaseConnection *sqlx.DB
+	registerProcessorRepository repositories.RegisterProcessorRepository[any]
 }
 
-func NewDataBaseRegisterProcessor(dataBaseConnection *sqlx.DB) RegisterProcessor {
+func NewDataBaseRegisterProcessor(registerProcessorRepository repositories.RegisterProcessorRepository[any]) RegisterProcessor {
 	return &DataBaseRegisterProcessor{
-		dataBaseConnection: dataBaseConnection,
+		registerProcessorRepository: registerProcessorRepository,
 	}
 }
 
