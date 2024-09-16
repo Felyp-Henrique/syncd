@@ -6,7 +6,7 @@ type DataBaseRegisterProcessorRepository struct {
 	dataBase *sqlx.DB
 }
 
-func NewDataBaseRegisterProcessorRepository(dataBase *sqlx.DB) RegisterProcessorRepository[string] {
+func NewDataBaseRegisterProcessorRepository(dataBase *sqlx.DB) RegisterProcessorRepository {
 	return &DataBaseRegisterProcessorRepository{
 		dataBase: dataBase,
 	}

@@ -6,15 +6,15 @@ import (
 )
 
 type DataBaseRegisterProcessor struct {
-	registerProcessorRepository repositories.RegisterProcessorRepository[any]
+	registerProcessorRepository repositories.RegisterProcessorRepository
 }
 
-func NewDataBaseRegisterProcessor(registerProcessorRepository repositories.RegisterProcessorRepository[any]) RegisterProcessor {
+func NewDataBaseRegisterProcessor(registerProcessorRepository repositories.RegisterProcessorRepository) RegisterProcessor {
 	return &DataBaseRegisterProcessor{
 		registerProcessorRepository: registerProcessorRepository,
 	}
 }
 
 func (d *DataBaseRegisterProcessor) Execute(register *entities.Register) error {
-	return nil
+	return d.registerProcessorRepository.Execute("")
 }

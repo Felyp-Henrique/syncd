@@ -16,30 +16,30 @@ import (
 )
 
 // MockRegisterProcessorRepository is a mock of RegisterProcessorRepository interface.
-type MockRegisterProcessorRepository[Q any] struct {
+type MockRegisterProcessorRepository struct {
 	ctrl     *gomock.Controller
-	recorder *MockRegisterProcessorRepositoryMockRecorder[Q]
+	recorder *MockRegisterProcessorRepositoryMockRecorder
 }
 
 // MockRegisterProcessorRepositoryMockRecorder is the mock recorder for MockRegisterProcessorRepository.
-type MockRegisterProcessorRepositoryMockRecorder[Q any] struct {
-	mock *MockRegisterProcessorRepository[Q]
+type MockRegisterProcessorRepositoryMockRecorder struct {
+	mock *MockRegisterProcessorRepository
 }
 
 // NewMockRegisterProcessorRepository creates a new mock instance.
-func NewMockRegisterProcessorRepository[Q any](ctrl *gomock.Controller) *MockRegisterProcessorRepository[Q] {
-	mock := &MockRegisterProcessorRepository[Q]{ctrl: ctrl}
-	mock.recorder = &MockRegisterProcessorRepositoryMockRecorder[Q]{mock}
+func NewMockRegisterProcessorRepository(ctrl *gomock.Controller) *MockRegisterProcessorRepository {
+	mock := &MockRegisterProcessorRepository{ctrl: ctrl}
+	mock.recorder = &MockRegisterProcessorRepositoryMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
-func (m *MockRegisterProcessorRepository[Q]) EXPECT() *MockRegisterProcessorRepositoryMockRecorder[Q] {
+func (m *MockRegisterProcessorRepository) EXPECT() *MockRegisterProcessorRepositoryMockRecorder {
 	return m.recorder
 }
 
 // Execute mocks base method.
-func (m *MockRegisterProcessorRepository[Q]) Execute(query Q) error {
+func (m *MockRegisterProcessorRepository) Execute(query string) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Execute", query)
 	ret0, _ := ret[0].(error)
@@ -47,7 +47,7 @@ func (m *MockRegisterProcessorRepository[Q]) Execute(query Q) error {
 }
 
 // Execute indicates an expected call of Execute.
-func (mr *MockRegisterProcessorRepositoryMockRecorder[Q]) Execute(query any) *gomock.Call {
+func (mr *MockRegisterProcessorRepositoryMockRecorder) Execute(query any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Execute", reflect.TypeOf((*MockRegisterProcessorRepository[Q])(nil).Execute), query)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Execute", reflect.TypeOf((*MockRegisterProcessorRepository)(nil).Execute), query)
 }
