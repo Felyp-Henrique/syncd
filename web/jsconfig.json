@@ -3,5 +3,10 @@
     "paths": {
       "@/*": ["./*"]
     }
+  },
+  "typeAcquisition": {
+    "exclude": [
+      "node_modules",
+    ],
   }
 }
