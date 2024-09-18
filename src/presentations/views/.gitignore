@@ -1,0 +1,6 @@
+#
+# Pasta static deve ser gerada com o comando "make build.web"
+#
+*
+!*.go
+!.gitignore

@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make.build.clean",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "make.build.web",
+            "type": "shell",
+            "command": "make clean && make build.web",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,5 +1,0 @@
-package messaging
-
-func init() {
-
-}

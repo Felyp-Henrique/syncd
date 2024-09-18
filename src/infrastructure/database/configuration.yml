@@ -1,9 +1,0 @@
-host: "localhost"
-port: 0
-database: "development.db"
-driver: "sqlite"
-username: ""
-password: ""
-connection_lifetime_max: 0
-connection_idle_max: 10
-connection_open_max: 10
